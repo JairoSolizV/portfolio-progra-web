@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Jesús Bautista Hurtado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Paleta de colores y estilos base */
+        :root {
+            --azul-oscuro: #2A3B47;
+            --azul-medio: #3A6B8A;
+            --azul-claro: #4B9DB3;
+            --blanco: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--azul-oscuro);
+            line-height: 1.6;
+        }
+
+        /* Estilos de navegación */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(42, 59, 71, 0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--blanco);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: var(--azul-claro);
+            transform: translateY(-2px);
+        }
+
+        /* Sección de Presentación */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-medio));
+            color: var(--blanco);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 2rem auto;
+            border: 5px solid var(--blanco);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Sección de Habilidades */
+        .skills {
+            padding: 4rem 2rem;
+            background: var(--blanco);
+        }
+
+        .skill-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Experiencia Laboral */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Formulario de Contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--azul-claro);
+            outline: none;
+        }
+
+        button {
+            background: var(--azul-claro);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 157, 179, 0.4);
+        }
+        /* Sección de Presentación - Versión Mejorada */
+    .hero {
+        padding: 8rem 2rem 4rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Nuevo: centrado vertical y horizontal */
+        background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-medio));
+        color: var(--blanco);
+        text-align: center;
+        position: relative;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centrado horizontal de todos los elementos */
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 2rem auto; /* Centrado automático horizontal */
+        border: 5px solid var(--blanco);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        width: 100%;
+    }
+
+    .tagline {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        max-width: 600px;
+    }
+
+    .personal-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+    }
+
+    .personal-info p {
+        display: flex;  
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    /* Ajuste para todos los títulos de sección */
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+        padding-left: 10%;
+        position: relative;
+        color: var(--azul-oscuro);
+        width: fit-content;
+    }
+
+    h2::before {
+        content: '';
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 30px;
+        width: 5px;
+        background: var(--azul-claro);
+    }
+
+    /* Ajuste específico para el timeline */
+    .timeline {
+        padding: 0 10%;
+    }
+
+    /* Ajuste para formulario de contacto */
+    .contact-form {
+        margin: 2rem auto;
+        padding: 2rem 10%;
+    }
+
+    @media (max-width: 768px) {
+        h2 {
+            padding-left: 7%;
+            font-size: 1.8rem;
+        }
+        
+        .timeline,
+        .contact-form {
+            padding: 0 5%;
+        }
+    }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-menu a {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="nav-container">
+        <div class="nav-menu">
+            <a href="#presentacion">Inicio</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#educacion">Educación</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Sección de Presentación -->
+    <section class="hero" id="presentacion">
+        <div class="hero-content">
+            <img src="jesus bautista foto.jpg" alt="Jesús Bautista Hurtado" class="profile-img">
+            <h1>Jesús Bautista Hurtado</h1>
+            <p class="tagline">Docente e Investigador en Ciencias de la Computación</p>
+            <div class="personal-info">
+                <p>📧 jesus.bautista@gmail.com</p>
+                <p>📍 Santa Cruz, Bolivia</p>
+                <p>🎓 Mgtr en Ciberseguridad</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Habilidades -->
+    <section class="skills" id="habilidades">
+        <h2>Habilidades Técnicas</h2>
+        <div class="skill-cards">
+            <div class="skill-card">
+                <h3><i class="fas fa-code"></i> Desarrollo Web</h3>
+                <p>HTML5, CSS3, JavaScript, React</p>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-robot"></i> Inteligencia Artificial</h3>
+                <p>Python, TensorFlow, PyTorch</p>
+            </div>
+            <!-- Añadir más habilidades según LinkedIn -->
+        </div>
+    </section>
+
+    <!-- Sección de Experiencia -->
+    <section class="experience" id="experiencia">
+        <h2>Experiencia Laboral</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Gerente de Proyectos</h3>
+                <p class="company">Van Hoof Consulting</p>
+                <p class="date">Enero 2020 - Actualidad (5 años 3 meses)</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Arquitectura de soluciones</li>
+                        <li>GitHub</li>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                        <li>Salesforce.com</li>
+                        <li>JavaScript</li>
+                        <li>Estrategia de TI</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Consultor Independiente</h3>
+                <p class="company">Independiente</p>
+                <p class="date">Abril 2019 - Actualidad (6 años)</p>
+                <p class="location">Bolivia</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>ERP de Infor</li>
+                        <li>Arquitectura de la información</li>
+                        <li>Amazon Web Services (AWS)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Gerente de Infraestructura y Redes Nacional</h3>
+                <p class="company">Bridge4Digital</p>
+                <p class="date">Noviembre 2017 - Enero 2020 (2 años 3 meses)</p>
+                <p class="location">Bolivia</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Auditoría TI</li>
+                        <li>Salesforce Marketing Cloud</li>
+                        <li>Almacenamiento de datos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Corporate Project Manager</h3>
+                <p class="company">Bridge4Digital</p>
+                <p class="date">Diciembre 2017 - Marzo 2019 (1 año 4 meses)</p>
+                <p class="location">Santa Cruz, Bolivia</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Arquitectura cloud</li>
+                        <li>Gestión de proyectos corporativos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Gerente de Redes</h3>
+                <p class="company">Consultor Independiente</p>
+                <p class="date">Enero 2010 - Noviembre 2017 (7 años 11 meses)</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Gestión de infraestructura TI</li>
+                        <li>Soluciones ERP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Coordinador de Desarrollo de Proyectos</h3>
+                <p class="company">BJD</p>
+                <p class="date">Enero 2013 - 2017 (4 años 1 mes)</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Gestión ágil de proyectos</li>
+                        <li>Desarrollo de software</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Gerente Nacional de TI</h3>
+                <p class="company">Tropical Tours</p>
+                <p class="date">Agosto 2010 - Junio 2012 (1 año 11 meses)</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Administración de sistemas</li>
+                        <li>Migración a la nube</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Gestor de Proyectos TI</h3>
+                <p class="company">Petrobras</p>
+                <p class="date">Enero 2007 - Diciembre 2010 (4 años)</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Gestión de datos corporativos</li>
+                        <li>Arquitectura empresarial</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Añadir más experiencias -->
+        </div>
+    </section>
+
+    <!-- Sección de Educación -->
+    <section class="education" id="educacion">
+        <h2>    Formación Académica</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Licenciatura en Información, Gestión y Control de Gestión</h3>
+                <p class="institution">Universidad Autónoma Gabriel René Moreno</p>
+                <p class="date">2017 - 2021</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Auditoría</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Maestría en Marketing/Gestión de Marketing</h3>
+                <p class="institution">Universidad Autónoma Gabriel René Moreno</p>
+                <p class="date">2019</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Licenciado en Administración de Empresas</h3>
+                <p class="institution">Universidad Nur</p>
+                <p class="date">2016 - 2020</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Doctor en Educación - PhD</h3>
+                <p class="institution">Universidad Autónoma Gabriel René Moreno</p>
+                <p class="date">2018 - 2025</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Cortafuegos</li>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Licenciado en Ingeniería Comercial</h3>
+                <p class="institution">Universidad Nur</p>
+                <p class="date">2012 - 2019</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Grado en Ingeniería Informática</h3>
+                <p class="institution">Universidad Autónoma Gabriel René Moreno</p>
+                <p class="date">1999 - 2006</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Maestría en Ciberseguridad</h3>
+                <p class="institution">Tecnológico de Monterrey</p>
+                <p class="date">Mayo 2022</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Cortafuegos</li>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Diplomado en Gestión de Ciberseguridad</h3>
+                <p class="institution">Tecnológico de Monterrey</p>
+                <p class="date">Noviembre 2022 - Abril 2023</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Cortafuegos</li>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Diplomado en Tecnologías de Ciberseguridad</h3>
+                <p class="institution">Tecnológico de Monterrey</p>
+                <p class="date">Marzo 2021 - Noviembre 2022</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Cortafuegos</li>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Curso Fundamentos de Auditoría a la Ciberseguridad</h3>
+                <p class="institution">Universidad de Santiago de Chile</p>
+                <p class="date">Diciembre 2022 - Enero 2023</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Curso Fundamentos de Ciberseguridad Industrial</h3>
+                <p class="institution">Universidad de Santiago de Chile</p>
+                <p class="date">Enero 2023 - Febrero 2023</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Maestría en Derecho Informático</h3>
+                <p class="institution">Universidad San Francisco Xavier de Chuquisaca</p>
+                <p class="date">Diciembre 2022</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Programa Internacional en Data Science for Business Intelligence - PDBI</h3>
+                <p class="institution">Universidad Privada de Santa Cruz de la Sierra - UPSA</p>
+                <p class="date">Marzo 2023</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Gestión de relaciones con clientes (CRM)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Diplomado en Ciencias de Datos Empresariales</h3>
+                <p class="institution">Universidad Privada de Santa Cruz de la Sierra - UPSA</p>
+                <p class="date">En curso</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Maestría en Derecho Informático</h3>
+                <p class="institution">Universidad San Francisco Xavier de Chuquisaca</p>
+                <p class="date">Enero 2022 - Agosto 2023</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>SOC Analyst</h3>
+                <p class="institution">EC-Council University</p>
+                <p class="date">Julio 2024</p>
+                <div class="aptitudes">
+                    <strong>Aptitudes:</strong>
+                    <ul>
+                        <li>Infraestructura</li>
+                        <li>Ciberseguridad</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Diplomado en Elaboración de Perfiles en Criminología, Criminalística y Victimología</h3>
+                <p class="institution">Florida Global University</p>
+                <p class="date">Mayo 2024 - Noviembre 2024</p>
+            </div>
+            <!-- Añadir más certificaciones -->
+        </div>
+    </section>
+
+    <!-- Footer de Contacto -->
+<footer class="footer-contact" id="contacto">
+    <div class="footer-content">
+        <h2>Contacto</h2>
+        <div class="contact-info">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/jesusbautistahurtado" target="_blank" class="footer-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:jesus.bautista@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i> jesus.bautista@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* Estilos para el footer */
+    .footer-contact {
+        background: var(--azul-oscuro);
+        color: var(--blanco);
+        padding: 4rem 2rem;
+        text-align: center;
+        border-top: 3px solid var(--azul-claro);
+    }
+
+    .footer-content h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        color: var(--blanco);
+        position: relative;
+        display: inline-block;
+    }
+
+    .footer-content h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 2px;
+        background: var(--azul-claro);
+    }
+
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+
+    .footer-link {
+        color: var(--blanco);
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+        border: 2px solid var(--azul-claro);
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .footer-link:hover {
+        background: var(--azul-claro);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(74, 157, 179, 0.3);
+    }
+
+    .footer-link i {
+        font-size: 1.3rem;
+    }
+
+    @media (max-width: 480px) {
+        .social-links {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .footer-link {
+            justify-content: center;
+        }
+    }
+</style>
+
+    <script>
+        // Animación al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-item').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll para la navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
